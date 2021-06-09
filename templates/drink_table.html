@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Bar</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='drink.css') }}">
+  </head>
+  <body>
+    <div class="body_container">
+      <div class="title">
+        <h1>Simple bar</h1>
+        <p>Let's test our new bar abilities!</p>
+      </div>
+      <div class="drink-table">
+        <h2>Table of available drinks</h2>
+        <table border="1" cellpadding="10">
+          <tr>
+            <th>Name</th>
+            <th>Kind</th>
+            <th>Hot / Cold</th>
+            <th>Price</th>
+            <th>Amount</th>
+          </tr>
+          {% for i in list %}
+            <tr>
+              <td>{{ i['name'] }}</td>
+              <td>{{ i['kind'] }}</td>
+              <td>{{ i['hotcold'] }}</td>
+              <td>{{ i['price'] }}</td>
+              <td>{{ i['amount'] }}</td>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+      {% if mm and mm[2] != '' %}
+        <div class="minmax">
+          <h2>Minimum and maximum of {{ mm[2] }}</h2>
+          <p>Minimum: {{ mm[0] }}</p>
+          <p>Maximum: {{ mm[1] }}</p>
+        </div>
+      {% endif %}
+    </div>
+  </body>
+</html>

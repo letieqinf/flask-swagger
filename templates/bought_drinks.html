@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>User {{ id }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='users.css') }}"
+  </head>
+  <body>
+    <div class="body">
+      <h1>User {{ id }} goods</h1>
+      <div class="table">
+        <table border="1" cellpadding="10">
+          <tr>
+            <th>Name</th>
+            <th>Kind</th>
+            <th>Hot / Cold</th>
+            <th>Price</th>
+            <th>Amount</th>
+          </tr>
+          {% for i in list %}
+            <tr>
+              <td>{{ i['name'] }}</td>
+              <td>{{ i['kind'] }}</td>
+              <td>{{ i['hotcold'] }}</td>
+              <td>{{ i['price'] }}</td>
+              <td>{{ i['amount'] }}</td>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
